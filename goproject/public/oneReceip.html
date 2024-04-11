@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Name}}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            content: "•";
+            color: #007bff;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .feedback-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-container h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .feedback-container ul {
+            padding-left: 20px;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='/'">Back</button>
+
+    <div class="container">
+        <h1>{{.Name}}</h1>
+        <div class="recipe-details">
+            <h3>Ingredients:</h3>
+            <p>{{.Ingredients}}</p>
+            <h3>Instructions:</h3>
+            <p>{{.Instructions}}</p>
+            <p><strong>Prep Time (mins):</strong> {{.PrepTime}}</p>
+            <p><strong>Cook Time (mins):</strong> {{.CookTime}}</p>
+            <p><strong>Servings:</strong> {{.Servings}}</p>
+            <p><strong>Grade Amount:</strong> {{.GradeAmount}}</p>
+            <p><strong>Average Grade:</strong> {{.AverageGrade}}</p>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-container">
+        <h2>Feedback</h2>
+        <ul>
+            {{range .Feedback}}
+            <li>
+                <strong>Grade:</strong> {{.Grade}}, <strong>Description:</strong> {{.Description}}
+            </li>
+            {{else}}
+            <li>No feedback available.</li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "ICP docker dev",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "go",
+  "workspaceFolder": "/home/workspace",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go"
+      ]
+    }
+  }
+}
